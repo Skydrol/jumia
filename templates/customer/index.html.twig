@@ -13,8 +13,8 @@
         <div class="row">
             <div class="col-md-2">
                 <div class="form-group">
-                    <select class="form-control" id="countries">
-                        <option>Select Country</option>
+                    <select class="form-control search-fields" id="countries">
+                        <option value="all">Select Country</option>
                         <option value="237">Cameroon</option>
                         <option value="251">Ethiopia</option>
                         <option value="212">Morocco</option>
@@ -25,9 +25,10 @@
             </div>
             <div class="col-md-2">
                 <div class="form-group">
-                    <select class="form-control" id="validatePhone">
-                        <option>Valid phone numbers</option>
-                        <option>Invalid phone numbers</option>
+                    <select class="form-control search-fields" id="validatePhone">
+                        <option value="valid">Valid phone numbers</option>
+                        <option value="invalid">Invalid phone numbers</option>
+                        <option value="any">All</option>
                     </select>
                 </div>
             </div>
@@ -43,5 +44,44 @@
 
         </div>
     </div>
+
+    <script>
+
+
+        let country = 'all';
+        let isValid = 'any';
+
+        document.querySelector('#countries').addEventListener('change',function(){
+            fetchTable();
+        });
+
+        document.querySelector('#validatePhone').addEventListener('change',function(){
+            fetchTable();
+        });
+
+
+        function fetchTable() {
+
+            country = document.querySelector('#countries').value;
+            isValid = document.querySelector('#validatePhone').value;
+
+            let baseUrl = '{{ app.request.getSchemeAndHttpHost() }}';
+
+            return fetch(baseUrl + '/search/' + country + '/' + isValid)
+                .then(function(response) {
+                    return response.text();
+                })
+                .then(function(data) {
+
+                    document.querySelector('#table-renderer').innerHTML = '';
+                    document.querySelector('#table-renderer').innerHTML = data;
+
+                    console.log(baseUrl + '/search/' + country + '/' + isValid);
+
+                });
+        }
+
+
+    </script>
 
 {% endblock %}
