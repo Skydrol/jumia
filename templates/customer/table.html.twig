@@ -1,0 +1,19 @@
+<table id="table" class="table table-striped table-bordered" style="width:100%">
+    <thead>
+        <tr>
+            <th>Country</th>
+            <th>State</th>
+            <th>Country Code</th>
+            <th>Phone number</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for customer in customers %}
+        <tr>
+            <td>{{ customer.country }}</td>
+            <td>{{ customer.status }}</td>
+            <td>{{ customer.countryCode }}</td>
+            <td>{{ customer.phone }}</td>
+        </tr>
+    {% endfor %}
+</table>

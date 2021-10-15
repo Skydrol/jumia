@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+
+
+{% block body %}
+
+{#    {{ dump(customers) }}#}
+    <br>
+    <h1>Phone numbers</h1>
+    <br>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-2">
+                <div class="form-group">
+                    <select class="form-control" id="countries">
+                        <option>Select Country</option>
+                        <option value="237">Cameroon</option>
+                        <option value="251">Ethiopia</option>
+                        <option value="212">Morocco</option>
+                        <option value="258">Mozambique</option>
+                        <option value="256">Uganda</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="form-group">
+                    <select class="form-control" id="validatePhone">
+                        <option>Valid phone numbers</option>
+                        <option>Invalid phone numbers</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <br>
+        <div class="row">
+            <div id="table-renderer" class="col-md-8">
+
+                {{ include('customer/table.html.twig', { 'customers': customers }) }}
+
+            </div>
+
+        </div>
+    </div>
+
+{% endblock %}
