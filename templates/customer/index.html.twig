@@ -47,7 +47,6 @@
 
     <script>
 
-
         let country = 'all';
         let isValid = 'any';
 
@@ -58,7 +57,6 @@
         document.querySelector('#validatePhone').addEventListener('change',function(){
             fetchTable();
         });
-
 
         function fetchTable() {
 
@@ -76,11 +74,8 @@
                     document.querySelector('#table-renderer').innerHTML = '';
                     document.querySelector('#table-renderer').innerHTML = data;
 
-                    console.log(baseUrl + '/search/' + country + '/' + isValid);
-
                 });
         }
-
 
     </script>
 
