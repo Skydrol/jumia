@@ -32,7 +32,7 @@ class CustomerController extends AbstractController
         $entityManager = $this->getDoctrine()->getManager();
 
         if($countryCode != 'all'){
-            $allCustomers = $entityManager->getRepository(Customer::class)->findbyCountryCode($countryCode);
+            $allCustomers = $entityManager->getRepository(Customer::class)->findByCountryCode($countryCode);
         } else {
             $allCustomers = $entityManager->getRepository(Customer::class)->findAll();
         }
