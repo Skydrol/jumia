@@ -40,13 +40,11 @@ class CustomerController extends AbstractController
         $allCustomers = $this->getTableData($allCustomers);
 
         if($status == 'valid'){
-
             foreach ($allCustomers as $key => $customer){
                 if($customer['status'] != 'OK'){
                     unset($allCustomers[$key]);
                 }
             }
-
         }
 
         if($status == 'invalid'){
@@ -92,7 +90,6 @@ class CustomerController extends AbstractController
             if (strpos($number, '('.$country['code'].')') !== false) {
                 return '+'.$country['code'];
             }
-
         }
         return 'unknown';
     }
