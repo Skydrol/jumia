@@ -12,7 +12,7 @@ composer install
 
 ## Usage
 
-After composer installed all the packages you have to place the database in var/ folder and then run the server:
+After composer installed all the packages you have to place the database sample.db in var/ folder and then run the server:
 (You need to have symfony installed to run commands that start with 'symfony')
 
 ```bash
